@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Use min-height to ensure full viewport height */
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; /* Ensure vertical overflow is handled */
+}
+
+.intro-container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 50px;
+    width: 100%;
+    max-width: 1300px;
+    box-shadow: 0px 0px 15px rgba(106, 28, 90, 0.1);
+    overflow: auto;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+h1 {
+    text-align: center;
+    color: #3c349e;
+}
+
+p {
+    text-align: justify;
+    line-height: 1.6;
+    margin-bottom: 20px; /* Ensure spacing between paragraphs */
+}
+
+ul {
+    margin: 20px 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: #d70404;
+}
+
+
+.button {
+    flex: 1;
+    padding: 10px;
+    margin: 5px;
+    background-color: #0018cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 25px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #0055a3;
+}

@@ -1,0 +1,131 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3f4f6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    background: linear-gradient(135deg, #7ec850, #34a1eb);
+    color: #fff;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about-header h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.about-header p {
+    font-size: 1.2em;
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.about-text {
+    max-width: 600px;
+    padding: 20px;
+}
+
+.about-text h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+button#learnMoreBtn {
+    background-color: #ffc107;
+    color: #333;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button {
+    flex: 1;
+    padding: 10px;
+    margin: 5px;
+    background-color: #0018cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 25px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #0055a3;
+}
+
+button#learnMoreBtn:hover {
+    background-color: #ff9800;
+}
+
+#moreInfo {
+    background-color: #71def9;
+    margin-top: 40px;
+    max-width: 900px;
+    text-align: center;
+    display: none;
+    color: #141313;
+}
+
+#moreInfo h3 {
+    font-size: 2em;
+    color :#030303;
+    margin-bottom: 20px;
+}
+
+#moreInfo ul {
+    list-style: none;
+    padding: 0;
+}
+
+#moreInfo ul li {
+    font-size: 1.2em;
+    color: #030303;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+#moreInfo ul li:before {
+    content: '✔';
+    color: #ffc107;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.hidden {
+    display: none;
+}
