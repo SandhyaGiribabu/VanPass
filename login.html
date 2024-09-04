@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaGuardian</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/logo.jpg" style='border-radius:50%; font-size:20px;' alt="AquaGuardian Logo">
+            <h1 style='font-size:30px;'>AquaGuardian</h1>
+        </div>
+    </header>
+    <main>
+        <div class="col">
+            <h1 style="padding-top:30px; font-weight: 700; font-size: 3.5rem;">
+                Welcome to VanPass 
+            </h1> 
+            <form style="margin-top: 10px;">
+                <div class="form-group">
+                    <label for="exampleInputEmail">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
+                </div>
+                <button type="button" class="btn btn-primary btn-lg" style="margin-top: 10px; margin-right:20px; border-radius: 2rem; background-color:lightseagreen;" id="login-btn">Login</button>
+                <button type="button" class="btn btn-light" id="google-login-button"><img style="width:60px; height:30px;" src="https://cdn2.hubspot.net/hubfs/53/image8-2.jpg">Login using Google</button>
+            </form>
+            <div style="margin-top: 20px;"> Don't have an account?</div>
+            <button type="button" class="btn btn-primary btn-lg" style="margin-top: 10px; border-radius: 2rem; background-color:lightseagreen;" id="signup-btn">Sign Up</button>
+        </div>
+    </main>
+
+    <div id="alert-container"></div>
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js"></script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAXUZVI_-1LyfctemXeNlQxIwjqzuNHF1E",
+            authDomain: "vanpass-59696.firebaseapp.com",
+            projectId: "vanpass-59696",
+            storageBucket: "vanpass-59696.appspot.com",
+            messagingSenderId: "929821455131",
+            appId: "1:929821455131:web:cc492e5330f7f8cd3919be",
+            measurementId: "G-1MEXG2RBJ5"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth();
+
+        // Function to show alerts
+        function showAlert(type, message) {
+            const alertContainer = document.getElementById('alert-container');
+            alertContainer.innerHTML = `
+                <div class="alert alert-${type}" role="alert">
+                    ${message}
+                </div>
+            `;
+            setTimeout(() => {
+                alertContainer.innerHTML = ''; // Clear alert after 3 seconds
+            }, 3000);
+        }
+
+        // Google Authentication
+        const googleLoginButton = document.getElementById('google-login-button');
+        const provider = new GoogleAuthProvider();
+        googleLoginButton.addEventListener('click', () => {
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    const user = result.user;
+                    console.log('User Info:', user);
+                    showAlert('success', 'Logged in successfully');
+                    window.location.href = 'home.html';
+                })
+                .catch((error) => {
+                    console.error('Error:', error.code, error.message);
+                    showAlert('danger', 'Google login failed. Please try again.');
+                });
+        });
+
+        // Email/Password Authentication
+        const emailInput = document.getElementById('exampleInputEmail');
+        const passwordInput = document.getElementById('exampleInputPassword');
+        const loginButton = document.getElementById('login-btn');
+
+        loginButton.addEventListener('click', () => {
+            const email = emailInput.value;
+            const password = passwordInput.value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log('User Info:', user);
+                    showAlert('success', 'Logged in successfully');
+                    window.location.href = 'home.html';
+                })
+                .catch((error) => {
+                    console.error('Error:', error.code, error.message);
+                    showAlert('danger', 'Invalid email or password.');
+                });
+        });
+
+        // Sign up button event
+        document.getElementById('signup-btn').addEventListener('click', () => {
+            window.location.href = 'signup.html';
+        });
+    </script>
+</body>
+</html>
