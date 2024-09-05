@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate of Achievement</title>
+    <style>
+        body {
+            
+            
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: aqua;
+        }
+        .certificate-container {
+            border: 10px solid #0073e6;
+            padding: 50px;
+            width: 800px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            position: relative;
+            background-image: url('your-certificate-image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .certificate-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #0073e6;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        .certificate-body {
+        
+            font-size: 20px;
+            color: #333;
+            position: relative;
+            z-index: 1;
+        }
+        .recipient-name {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+        .signature {
+            font-size: 18px;
+            margin-top: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        .signature div {
+            display: inline-block;
+            width: 200px;
+            border-top: 2px solid #333;
+            margin: 20px;
+        }
+        /* Add an overlay to darken/lighten the background image if necessary */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.7); /* Adjust transparency */
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate-container">
+        <!-- Optional overlay to adjust image brightness -->
+        <div class="overlay"></div>
+
+        <div class="certificate-title">Certificate of Achievement</div>
+        <div class="certificate-body">
+            This is to certify that
+            <div class="recipient-name">Varsha</div>
+            has successfully completed
+            <br><strong>JAVA</strong>
+            <br>on 17th August.
+        </div>
+
+        <div class="signature">
+            <div>Signature</div>
+            <div>Date</div>
+        </div>
+    </div>
+</body>
+</html>
